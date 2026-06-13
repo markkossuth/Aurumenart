@@ -1,0 +1,545 @@
+/* =========================
+   GLOBÁLIS ALAP
+========================= */
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  background: #fff;
+  color: #212529;
+  padding-top: calc(56px + 24px);
+  padding-bottom: 24px;
+}
+
+p {
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* =========================
+   ELEGÁNS ELVÁLASZTÓ
+========================= */
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #c8a96e 30%,
+    #e8d5a3 50%,
+    #c8a96e 70%,
+    transparent 100%
+  );
+  opacity: 1;
+  margin: 40px auto;
+  max-width: 80%;
+}
+
+/* =========================
+   GALÉRIA / CAROUSEL
+========================= */
+
+.art-gallery {
+  padding: 60px 0;
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 15px;
+  transition: transform 0.6s ease;
+  overflow: hidden;
+}
+
+.carousel-track img {
+  width: 33.33%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+
+/* =========================
+   CAROUSEL GOMBOK
+========================= */
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 2;
+  transition: 0.3s;
+}
+
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+/* =========================
+   ART CARD
+========================= */
+
+.art-card {
+  background: #111;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.art-card:hover {
+  transform: translateY(-5px);
+}
+
+.art-card h3 {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   CARD SLIDER (AUTOMATA KÉPEK)
+========================= */
+
+.art-slider {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.slider-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+  cursor: pointer;
+}
+
+.slider-image.active {
+  opacity: 1;
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(240, 237, 232, 0.96);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+}
+
+/* CLOSE GOMB */
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #333;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 100000;
+  text-shadow: none;
+}
+
+/* NYILAK */
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.12);
+  color: #333;
+  border: none;
+  font-size: 50px;
+  cursor: pointer;
+  padding: 10px 20px;
+  z-index: 100000;
+  transition: 0.3s;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(0,0,0,0.25);
+}
+
+.lightbox-prev {
+  left: 30px;
+}
+
+.lightbox-next {
+  right: 30px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.art-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+}
+
+.art-modal-content {
+  background: #111;
+  color: white;
+  padding: 30px;
+  max-width: 700px;
+  width: 90%;
+  border-radius: 12px;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide-track {
+    display: flex;
+    width: max-content;
+    height: 300px;
+    animation: scroll 40s linear infinite;
+}
+
+.slide-track img {
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 12px;
+}
+
+/* =========================
+   HERO FUTÓ SLIDER
+========================= */
+
+.hero-slider {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-slider .slide-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.hero-slider .slide-track img {
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.hero-slider .slide-track img:hover {
+    transform: scale(1.03);
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* =========================
+   HERO SZEKCIÓ
+========================= */
+
+.hero-section {
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 30px 24px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  animation: heroBgSlide 0.9s ease-out forwards;
+}
+
+@keyframes heroBgSlide {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+.hero-content {
+  animation: heroTextSlide 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes heroTextSlide {
+  from {
+    transform: translateX(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* h1 ÉS h2 is kap shimmer effektet a hero-ban */
+.hero-content h1,
+.hero-content h2,
+.hero-content h4 {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffff 40%,
+    #c8a96e 50%,
+    #ffffff 60%,
+    #ffffff 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: heroTextSlide 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+             shimmer 5s ease-in-out 1.1s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* =========================
+   NAVBAR LINKEK
+========================= */
+
+#aurumenNav .nav-link,
+#aurumenNav .nav-link:visited {
+  color: #c8a96e !important;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s;
+}
+
+#aurumenNav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #c8a96e;
+  transition: width 0.3s ease;
+}
+
+#aurumenNav .nav-link:hover,
+#aurumenNav .nav-link:focus {
+  color: #e8d5a3 !important;
+}
+
+#aurumenNav .nav-link:hover::after,
+#aurumenNav .nav-link.active::after {
+  width: 100%;
+}
+
+#aurumenNav .navbar-brand,
+#aurumenNav .navbar-brand:visited {
+  color: #c8a96e !important;
+  transition: color 0.3s;
+}
+
+#aurumenNav .navbar-brand:hover {
+  color: #e8d5a3 !important;
+}
+
+#aurumenNav {
+  border-bottom: 1px solid rgba(200, 169, 110, 0.25);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.custom-footer {
+  padding: 30px 24px 20px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
+  margin-bottom: 20px;
+}
+
+.footer-link {
+  background: none;
+  border: none;
+  color: #c8a96e;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px 0;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #c8a96e;
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #e8d5a3;
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+.footer-copy {
+  text-align: center;
+  border-top: 1px solid rgba(200, 169, 110, 0.25);
+  padding-top: 16px;
+}
+
+.footer-copy h4 {
+  font-size: 0.95rem;
+  color: #aaa;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* =========================
+   FOOTER MODAL
+========================= */
+
+.footer-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(240, 237, 232, 0.96);
+  z-index: 99998;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.footer-modal.open {
+  display: flex;
+}
+
+.footer-modal-content {
+  background: #fff;
+  color: #212529;
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+}
+
+.footer-modal-content h2 {
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+  color: #111;
+}
+
+.footer-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 36px;
+  cursor: pointer;
+  color: #888;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.footer-modal-close:hover {
+  color: #111;
+}
+
+/* =========================
+   FOOTER REJTETT TARTALMAK
+========================= */
+
+.footer-hidden {
+  display: none;
+}
